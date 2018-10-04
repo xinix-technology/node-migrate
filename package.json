@@ -1,0 +1,25 @@
+{
+  "name": "@xinix/migrate",
+  "version": "1.0.0",
+  "description": "Migration cli",
+  "main": "index.js",
+  "bin": {
+    "migrate": "./cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xinix-technology/node-migrate.git"
+  },
+  "author": "Ganesha <reekoheek@gmail.com> (http://sagara.id)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xinix-technology/node-migrate/issues"
+  },
+  "homepage": "https://github.com/xinix-technology/node-migrate#readme",
+  "dependencies": {
+    "umzug": "^2.1.0"
+  }
+}
