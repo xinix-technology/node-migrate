@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const path = require('path');
 const Migrate = require('./');
 const migrate = new Migrate();
