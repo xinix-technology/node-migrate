@@ -1,6 +1,6 @@
 {
   "name": "@xinix/migrate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Migration cli",
   "main": "index.js",
   "bin": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/xinix-technology/node-migrate#readme",
   "dependencies": {
+    "sprintf-js": "^1.1.1",
     "umzug": "^2.1.0"
   }
 }

@@ -3,16 +3,17 @@
 const path = require('path');
 const Migrate = require('./');
 const migrate = new Migrate();
+const { sprintf } = require('sprintf-js');
 
 function logMigrateEvent (eventName) {
   return function (name, migration) {
-    console.info(`${name} ${eventName}`);
+    console.info(sprintf('%8s %s', eventName, name));
   };
 }
-migrate.on('migrating', logMigrateEvent('migrating'));
-migrate.on('migrated', logMigrateEvent('migrated'));
-migrate.on('reverting', logMigrateEvent('reverting'));
-migrate.on('reverted', logMigrateEvent('reverted'));
+migrate.on('migrating', logMigrateEvent('Up'));
+migrate.on('migrated', logMigrateEvent('Upped'));
+migrate.on('reverting', logMigrateEvent('Down'));
+migrate.on('reverted', logMigrateEvent('Downed'));
 
 async function getStatus () {
   let executed = (await migrate.executed()).map(m => {
@@ -51,7 +52,7 @@ async function cmdNext () {
   if (pending.length === 0) {
     throw new Error('No pending migrations');
   }
-  const next = pending[0].name;
+  const next = pending[0];
   return migrate.up({ to: next });
 }
 
@@ -68,7 +69,7 @@ async function cmdPrev () {
   if (executed.length === 0) {
     throw new Error('Already at initial state');
   }
-  const prev = executed[executed.length - 1].name;
+  const prev = executed[executed.length - 1];
   return migrate.down({ to: prev });
 }
 
@@ -86,6 +87,7 @@ async function cmdPrev () {
 
       case 'next':
         await cmdNext();
+        process.exit();
         break;
 
       case 'down':
@@ -104,7 +106,8 @@ async function cmdPrev () {
 
     console.info('OK');
   } catch (err) {
-    console.error(`ERR cmd:${cmd.toUpperCase()}`);
+    console.error(`ERR migrate ${cmd}`);
     console.error(err);
+    process.exit(1);
   }
 })();
