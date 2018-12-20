@@ -1,13 +1,13 @@
 {
   "name": "@xinix/migrate",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Migration cli",
   "main": "index.js",
   "bin": {
     "migrate": "./cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,16 @@
   },
   "homepage": "https://github.com/xinix-technology/node-migrate#readme",
   "dependencies": {
-    "sprintf-js": "^1.1.1",
-    "umzug": "^2.1.0"
+    "sprintf-js": "^1.1.2",
+    "umzug": "^2.2.0"
+  },
+  "devDependencies": {
+    "husky": "^1.3.0",
+    "node-norm": "^1.2.19"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }

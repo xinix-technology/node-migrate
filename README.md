@@ -18,6 +18,19 @@ module.exports = {
 };
 ```
 
+## Configuration
+
+Create file with name `.migraterc.js` and export umzug options. Example,
+
+```sh
+module.exports = {
+  storage: 'json',
+  storageOptions: {
+    path: 'the-umzug-file.json',
+  },
+};
+```
+
 Migration files will be sorted by its name.
 
 ## Status
