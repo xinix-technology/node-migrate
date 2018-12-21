@@ -48,7 +48,7 @@ class NormStorage {
     await this.prepareNorm();
 
     return this.manager.runSession(async session => {
-      await session.factory('node_migration', { name }).delete();
+      await session.factory('node_migrate', { name }).delete();
     });
   }
 }
