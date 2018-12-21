@@ -143,6 +143,7 @@ async function cmdPrev () {
 
     console.info(':)');
     console.info('');
+    process.exit();
   } catch (err) {
     console.error(`Caught error at command: ${cmd}`);
     console.error(err);
