@@ -17,7 +17,7 @@ class NormStorage {
       if (con.constructor.name.toLowerCase() === 'mysql') {
         con.dbQuery(`
           CREATE TABLE IF NOT EXISTS node_migrate (
-            id INT PRIMARY KEY AUTO_INCREMENT
+            id INT PRIMARY KEY AUTO_INCREMENT,
             name VARCHAR(255)
           )
         `);
