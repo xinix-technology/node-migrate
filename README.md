@@ -24,7 +24,7 @@ Create file with name `.migraterc.js` and export umzug options. Example,
 
 ```sh
 module.exports = {
-  storage: 'json',
+  storage: 'json', // new require('@xinix/migrate/storages/norm')({ manager }),
   storageOptions: {
     path: 'the-umzug-file.json',
   },
