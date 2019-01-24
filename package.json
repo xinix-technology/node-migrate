@@ -1,6 +1,6 @@
 {
   "name": "@xinix/migrate",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Migration cli",
   "main": "index.js",
   "bin": {

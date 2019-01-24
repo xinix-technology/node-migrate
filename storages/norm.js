@@ -30,6 +30,12 @@ class NormStorage {
   }
 
   async prepareNorm () {
+    if (this._prepared) {
+      return;
+    }
+
+    this._prepared = true;
+
     await this.prepareCallback(this);
   }
 
